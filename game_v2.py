@@ -43,12 +43,12 @@ def score_game(fork_method_predict) -> int:
     """
     count_ls = []
     np.random.seed(1)  # фиксируем сид для воспроизводимости
-    random_array = np.random.randint(1, 101, size=(1000))  # загадали список чисел
+    random_array = np.random.randint(1, 101, size=(100000))  # загадали список чисел
 
     for number in random_array:
         count_ls.append(fork_method_predict(number))
 
-    score = round(np.mean(count_ls))
+    score = round(np.mean(count_ls),6)
     print(f"Ваш алгоритм угадывает число в среднем за:{score} попыток")
     return score
 
